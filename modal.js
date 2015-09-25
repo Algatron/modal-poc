@@ -1,24 +1,34 @@
-/**
- * Created by Algatron on 9/24/2015.
- */
 
-angular.module('MrModal', ['ui.bootstrap'])
-    .controller('modalController', function($scope) {
+
+angular.module('ModalModule', ['ui.bootstrap'])
+    .controller('ModalController', function($scope, resolveTest, templateUrl) {
+        $scope.controllerTest = "ModalController - success";
+        $scope.resolveTest = resolveTest;
+        $scope.templateUrl = templateUrl;
 
     })
     .factory('ModalService', function($modal) {
 
         return {
-            openModal: function() {
-                var modalInstance = $modal.open({
+            openModal: function(aTemplateUrl) {
+
+                $modal.open({
                     animation: true,
                     templateUrl: 'modalTemplate.html',
-                    controller: 'modalController',
-                    size: 'sm'
+                    controller: 'ModalController',
+                    backdrop: 'static',
+                    keyboard: false,
+                    size: 'sm',
+                    resolve: {
+                        resolveTest: function() {
+                            return "resolve succeeded";
+                        },
+                        templateUrl: function() {
+                            return aTemplateUrl;
+                        }
+                    }
                 });
             }
         };
-
-
 
     });

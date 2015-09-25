@@ -1,16 +1,10 @@
-/**
- * Created by Algatron on 9/24/2015.
- */
 
-
-angular.module("App", ['MrModal'])
-    .controller("appController",
-        function($scope, ModalService) {
-
-            $scope.openModal = function() {
-                ModalService.openModal();
+angular.module("App", ['MyModule'])
+    .controller("AppController",
+        function($scope, MyModuleTrigger) {
+            $scope.controllerTest = "AppController - success";
+            $scope.triggerModule = function() {
+                MyModuleTrigger.trigger();
             };
-
-
         }
-);
+    );

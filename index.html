@@ -10,16 +10,21 @@
 
 
     <script src="https://code.angularjs.org/snapshot/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.js"></script>
 
     <script src="application.js"></script>
     <script src="modal.js"></script>
+    <script src="myModule.js"></script>
 
 </head>
 
 <body ng-app="App">
-    <div ng-controller="appController">
-        <button type="button" ng-click="openModal()">Open</button>
+    <div ng-controller="AppController">
+        <div>
+            Controller test:  {{ controllerTest }}
+        </div>
+        <button type="button" ng-click="triggerModule()">Trigger MyModule</button>
     </div>
 </body>
 
